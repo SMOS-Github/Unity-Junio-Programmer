@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 5.unity
     guid: 8017623f4ea1d9847a2f56c88ae2407b
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Prototype 2.unity
+    guid: f0196d95ff9244ffaa65879ba7824fd4
   m_configObjects: {}
