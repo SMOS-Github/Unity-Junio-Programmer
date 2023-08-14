@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51029928}
   - component: {fileID: 51029927}
+  - component: {fileID: 51029929}
   m_Layer: 0
   m_Name: LoadingBar
   m_TagString: Untagged
@@ -191,9 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73b54e715973b143bf3e05009f04112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingPanel: {fileID: 599765090}
-  loadingBar: {fileID: 807445965}
-  minLoadTime: 5
+  loadingPanal: {fileID: 599765090}
+  slider: {fileID: 807445965}
 --- !u!4 &51029928
 Transform:
   m_ObjectHideFlags: 0
@@ -208,6 +208,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &51029929
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51029926}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &51328830
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +488,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -611,7 +707,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 129319076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &129319076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +855,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 135641304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &135641304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,7 +1301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 182369676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &182369676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,7 +1449,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 194235424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &194235424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,7 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 219452295}
   playBt: {fileID: 8300000, guid: 1987e9c563a80904f86a26707a1eb147, type: 3}
-  click: {fileID: 8300000, guid: cba7a10ebc549d04da4514a0f243f618, type: 3}
+  click: {fileID: 8300000, guid: 96b5fb9468cb58e42a8fd4ebf778cfe3, type: 3}
   playBack: {fileID: 8300000, guid: 968a0d0909298184bbc0df96bdcd8d66, type: 3}
   titleSceen: {fileID: 1817806987}
   menuSceen: {fileID: 21796665}
@@ -2772,7 +2916,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 679217138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &679217138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,7 +3157,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 743413633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &743413633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3227,7 +3395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808146116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808146116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3363,7 +3543,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 827960532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &827960532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3767,7 +3959,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1283774228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1283774228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3903,7 +4107,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338566516}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1338566516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,7 +4565,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1449727122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1449727122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,7 +4792,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1527668954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1527668954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4884,7 +5124,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592419596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1592419596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5292,7 +5544,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1716602619}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51029927}
+        m_TargetAssemblyTypeName: LoadingControl, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1716602619
 MonoBehaviour:
   m_ObjectHideFlags: 0

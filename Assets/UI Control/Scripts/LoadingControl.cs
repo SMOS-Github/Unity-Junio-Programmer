@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadingControl : MonoBehaviour
 {
-    public GameObject loadingPanel;
-    public Slider loadingBar;
-
-    public float minLoadTime=10f;
+    public GameObject loadingPanal;
+    public Slider slider;
 
     public void LoadScene(int sceneIndex)
     {
@@ -18,22 +16,15 @@ public class LoadingControl : MonoBehaviour
     IEnumerator LoadingAsync(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        loadingPanel.gameObject.SetActive(true);
-
-        float timeLeft = 0;
+        loadingPanal.gameObject.SetActive(true);
 
         while (!operation.isDone)
         {
             float progerss = Mathf.Clamp01(operation.progress / 0.9f);
-            loadingBar.value = progerss;
-            timeLeft += Time.deltaTime;
-            yield return null;
-        }
-        while(timeLeft<minLoadTime)
-        {
-            timeLeft += Time.deltaTime;
-            yield return null;
+            slider.value = progerss;
 
+            yield return null;
         }
+        
     }
 }
