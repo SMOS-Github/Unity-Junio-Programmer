@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public GameObject restartMenu;
     private Rigidbody playerRb;
     private Animator animator;
     public AudioSource audioSource;
+
     public AudioClip jumpClip;
     public AudioClip crashClip;
     public ParticleSystem dirt;
     public ParticleSystem explosion;
 
-    private float jumpForce=500.0f;
-    private float doubbleJumpForce=250.0f;
-    private float gravityChanger=1.5f;
-    public bool isOnGrounded;
-    public bool doubbleJump = false;
+    private float jumpForce=800f;
+    public float gravityChanger=1.5f;
+
+
+    public bool isOnGrounded=false;
+
     public bool gameOver = false;
     public bool dashing = false;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityChanger;
         animator = GetComponent<Animator>();
@@ -40,40 +44,32 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacles"))
         {
             gameOver = true;
+            restartMenu.gameObject.SetActive(true);
             explosion.Play();
             dirt.Stop();
             animator.SetBool("Death_b", true);
             animator.SetInteger("DeathType_int", 2);
-            audioSource.PlayOneShot(crashClip);
+            audioSource.PlayOneShot(crashClip,1f);
         }
         if(gameOver==true)
         {
             dirt.Stop();
         }
-
+        
     }
     private void JumpAndMove()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isOnGrounded == true && gameOver == false)
+        if(Input.GetKeyDown(KeyCode.Space)&&isOnGrounded==true&&!gameOver)
         {
-            dirt.Stop();
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGrounded = false;
-            doubbleJump = false;
+            playerRb.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
             animator.SetTrigger("Jump_trig");
-            audioSource.PlayOneShot(jumpClip);
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && !doubbleJump && !isOnGrounded)
-        {
-            doubbleJump = true;
-            playerRb.AddForce(Vector3.up * doubbleJumpForce, ForceMode.Impulse);
-            animator.Play("Running_Jump", 3, 0f);
-            audioSource.PlayOneShot(jumpClip, 1f);
+            isOnGrounded=false;
+            audioSource.PlayOneShot(jumpClip,1f);
         }
         if(Input.GetKey(KeyCode.LeftShift))
         {
             dashing = true;
-            animator.SetFloat("Speed_Multiplier", 2.0f);
+            animator.SetFloat("Speed_Multiplier", 1.5f);
         }
         else if(dashing)
         {
@@ -81,5 +77,7 @@ public class PlayerMove : MonoBehaviour
             animator.SetFloat("Speed_Multiplier", 1.0f);
         }
     }
+
+   
 
 }

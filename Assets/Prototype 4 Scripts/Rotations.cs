@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Rotations : MonoBehaviour
 {
-    public float speed = 100f;
+    private float speed = 100f;
 
     void Update()
     {

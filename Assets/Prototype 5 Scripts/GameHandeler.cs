@@ -15,9 +15,9 @@ public class GameHandeler : MonoBehaviour
     public Text timeText;
     public Text livesText;
 
-    public float maxTime;
+    private float maxTime=90;
     private float noTime = 0;
-    public float spwanRate = 2f;
+    private float spwanRate = 2f;
     public int score;
     public int lives;
 
@@ -50,14 +50,14 @@ public class GameHandeler : MonoBehaviour
         if (gameIsActive == true)
         {
             Mathf.Round(maxTime -= Time.deltaTime);
-            timeText.text = "Time:" + maxTime.ToString("0");
+            timeText.text = "TIME : " + maxTime.ToString("0");
             if (maxTime < 0)
             {
                 GameOver();
             }
             if (gameOver == true)
             {
-                timeText.text = "Time:" + noTime.ToString("0");
+                timeText.text = "TIME : " + noTime.ToString("0");
             }
 
         }
@@ -72,7 +72,7 @@ public class GameHandeler : MonoBehaviour
     public void UpdateScore(int addToScore)
     {
         score += addToScore;
-        scoreText.text = "Score:" + score;
+        scoreText.text = "SCORE : " + score;
     }
 
     public void GameOver()
@@ -104,7 +104,7 @@ public class GameHandeler : MonoBehaviour
     public void UpdateLives(int totalLives)
     {
         lives += totalLives;
-        livesText.text = "Lives : " + lives;
+        livesText.text = "LIVES : " + lives;
         if (lives <= 0)
         {
             GameOver();

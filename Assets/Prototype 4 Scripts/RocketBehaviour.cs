@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class RocketBehaviour : MonoBehaviour
 {
     private Transform target;
@@ -9,9 +8,9 @@ public class RocketBehaviour : MonoBehaviour
     private bool homing;
 
     private float rocketStrength=15f;
-    private float aliveTimer=5f;
+    private float aliveTimer=1.5f;
 
-    void Update()
+    void FixedUpdate()
     {
         if(homing && target!=null)
         {

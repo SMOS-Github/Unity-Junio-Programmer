@@ -11,6 +11,7 @@ public class LoadingControl : MonoBehaviour
     public void LoadScene(int sceneIndex)
     {
         StartCoroutine(LoadingAsync(sceneIndex));
+        
     }
 
     IEnumerator LoadingAsync(int sceneIndex)

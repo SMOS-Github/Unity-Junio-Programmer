@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public float mouseSensitivity;
+    private float mouseSensitivity=145f;
 
     void Update()
     {

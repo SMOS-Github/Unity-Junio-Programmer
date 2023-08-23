@@ -4,83 +4,87 @@ using UnityEngine;
 
 public class SpwanLocations : MonoBehaviour
 {
-    public GameObject[] enemyBalls;
-    public GameObject[] miniEnemyPrefabs;
-    public GameObject bossPrefabs;
-    public int bossRound;
-
-
+    public GameObject[] enemys;
     public GameObject[] powerUps;
+    //Boss
+    public GameObject bossPrefab;
+    public GameObject[] miniEnemyPrefabs;
+    private int bossRound=3;
+    //Boss
+
     private float spwanXD = 6f;
     private float spwanZD = 9f;
-    public int enemyCount;
-    public int waveNumber;
+    private float spwanYD = 0.5f;
+
+    private int enemyCounts;
+    private int wave=1;
 
     void Start()
     {
-        SpwanWave(waveNumber);
-        int randomPowerup = Random.Range(0, powerUps.Length);
-        Instantiate(powerUps[randomPowerup], GenSpwanLocations(), powerUps[randomPowerup].transform.rotation);
-        
+        SpwanEnemy(wave);
+        SpwanPowerUp();
     }
+
     private void Update()
     {
-        enemyCount = FindObjectsOfType<EnemyController>().Length;
+        enemyCounts = FindObjectsOfType<Enemy>().Length;
 
-        if (enemyCount == 0)
+        if(enemyCounts==0)
         {
-            waveNumber++;
-            if(waveNumber%bossRound==0)
+            wave++;
+            SpwanPowerUp();
+
+            if (wave % bossRound == 0)
             {
-                SpwanBossWave(waveNumber);
+                SpawnBossWave(wave);
             }
             else
             {
-                 SpwanWave(waveNumber);
+                SpwanEnemy(wave);
             }
-           
-            int randomPowerup = Random.Range(0, powerUps.Length);
-            Instantiate(powerUps[randomPowerup], GenSpwanLocations(), powerUps[randomPowerup].transform.rotation);
         }
     }
 
-    void SpwanWave(int enemyToSpwan)
+    void SpwanEnemy(int enemysToSpwan)
     {
-        for (int i = 0; i <= enemyToSpwan; i++)
+        for (int i = 0; i < enemysToSpwan; i++)
         {
-            int index = Random.Range(0, enemyBalls.Length);
-            Instantiate(enemyBalls[index], GenSpwanLocations(), enemyBalls[index].transform.rotation);
+            int index = Random.Range(0, enemys.Length);
+            Instantiate(enemys[index], SpwanPos(), enemys[index].transform.rotation);
         }
     }
-
-    private Vector3 GenSpwanLocations()
+    void SpwanPowerUp()
     {
-        Vector3 randomPos = new Vector3(Random.Range(-spwanXD, spwanXD), 0.5f, Random.Range(-spwanZD, spwanZD));
-        return randomPos;
+        int index = Random.Range(0, powerUps.Length);
+        Instantiate(powerUps[index], SpwanPos(), powerUps[index].transform.rotation);
     }
-    public void SpwanMiniEnemy(int amount)
+    Vector3 SpwanPos()
     {
-        for(int i=0;i<amount;i++)
-        {
-            int randomMini = Random.Range(0, miniEnemyPrefabs.Length);
-            Instantiate(miniEnemyPrefabs[randomMini], GenSpwanLocations(), miniEnemyPrefabs[randomMini].transform.rotation);
-
-        }
+        Vector3 spwanPos = new Vector3(Random.Range(-spwanXD, spwanXD), spwanYD, Random.Range(-spwanZD, spwanZD));
+        return spwanPos;
     }
-    void SpwanBossWave(int currentRound)
+    void SpawnBossWave(int currentRound)
     {
-        int miniEnemysToSpwan;
-        if(bossRound!=0)
+        int miniEnemysToSpawn;
+        //We dont want to divide by 0!
+        if (bossRound != 0)
         {
-            miniEnemysToSpwan = currentRound / bossRound;
+            miniEnemysToSpawn = currentRound / bossRound;
         }
         else
         {
-            miniEnemysToSpwan = 1;
+            miniEnemysToSpawn = 1;
         }
-        var boss = Instantiate(bossPrefabs, GenSpwanLocations(), bossPrefabs.transform.rotation);
-        boss.GetComponent<EnemyController>().miniEnemySpwanCount = miniEnemysToSpwan;
-
+        var boss = Instantiate(bossPrefab, SpwanPos(),
+        bossPrefab.transform.rotation);
+        boss.GetComponent<Enemy>().miniEnemySpawnCount = miniEnemysToSpawn;
+    }    public void SpawnMiniEnemy(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            int randomMini = Random.Range(0, miniEnemyPrefabs.Length);
+            Instantiate(miniEnemyPrefabs[randomMini], SpwanPos(),
+            miniEnemyPrefabs[randomMini].transform.rotation);
+        }
     }
-   
 }

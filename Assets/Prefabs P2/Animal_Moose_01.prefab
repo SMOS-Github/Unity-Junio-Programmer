@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013d6b2f580a03846a006f5af7817881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eatSound: {fileID: 8300000, guid: 2a89f8600534d57408743f8a8ff32385, type: 3}
 --- !u!114 &6198954298083995260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81248495fc8647045a374bdd86361184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 96a7c09e4e3cc0d46bdb7bd720f72373, type: 3}
 --- !u!1 &8786438857191994019
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,9 +18,9 @@ public class GameManagerX : MonoBehaviour
     private float minValueY = -3.75f;  //  y value of the center of the bottom-most square
                                       // private float spawnRate = 1.5f;
 
-    public float maxTime=5f;
-    public float noTime = 0f;
-    public float spwanRate = 2f;
+    private float maxTime=90f;
+    private float noTime = 0f;
+    private float spwanRate = 2f;
     private int score;
     public bool gameOver;
     public bool gameIsActive=false;
@@ -43,14 +43,14 @@ public class GameManagerX : MonoBehaviour
         if(gameIsActive==true)
         {
             Mathf.Round(maxTime -= Time.deltaTime);
-            timeText.text = "Time:" + maxTime.ToString("0");
+            timeText.text = "TIME : " + maxTime.ToString("0");
             if (maxTime < 0)
             {
                 GameOver();
             }
             if(gameOver==true)
             {
-                timeText.text = "Time:" + noTime.ToString("0");
+                timeText.text = "TIME : " + noTime.ToString("0");
             }
             
         }
@@ -95,7 +95,7 @@ public class GameManagerX : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score : "+score;
+        scoreText.text = "SCORE : "+score;
     }
     
     // Stop game, bring up game over text and restart button

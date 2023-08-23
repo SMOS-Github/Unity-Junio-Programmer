@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CollisionEnter : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip hitClip;
+
     private GameManager gameManager;
 
     private void Start()
     {
+        audioSource = GameObject.Find("BGMusic").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -16,8 +20,8 @@ public class CollisionEnter : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             gameManager.AddLives(-1);
-            Debug.Log(gameManager.health);
+            audioSource.PlayOneShot(hitClip, 1f);
         }
-       
+
     }
 }

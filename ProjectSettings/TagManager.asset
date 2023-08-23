@@ -17,6 +17,8 @@ TagManager:
   - Enemy Goal
   - Good
   - Bad
+  - Red Wall
+  - WhiteFloor
   layers:
   - Default
   - TransparentFX

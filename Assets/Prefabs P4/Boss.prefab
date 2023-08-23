@@ -91,7 +91,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2702852087252164079}
-  m_Material: {fileID: 13400000, guid: 5e72e91cc2d055441b9daf53f1991daf, type: 2}
+  m_Material: {fileID: 13400000, guid: 90c089bd6b39ae440b22265adc87f1ed, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -125,9 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e9cd0d429a27b408a27edc803c0ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 50
-  yRange: -30
-  isBoss: 0
-  spwanInterval: 0
-  miniEnemySpwanCount: 0
+  speed: 170
+  miniEnemySpawnCount: 0

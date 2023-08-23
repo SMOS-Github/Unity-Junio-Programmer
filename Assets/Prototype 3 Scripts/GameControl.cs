@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    public Text scoreText;
     private int score=0;
     private float lerping=5.0f;
     public Transform startPoint;
@@ -21,13 +23,8 @@ public class GameControl : MonoBehaviour
         if (playerScript.gameOver == false)
         {
             score += 1;
-
-            if (playerScript.doubbleJump)
-            {
-                score += 3;
-            }
         }
-        Debug.Log("Scores :" + score);
+        scoreText.text = "SCORE : " + score;
     }
     IEnumerator PlayIntro()
     {
@@ -50,4 +47,5 @@ public class GameControl : MonoBehaviour
         playerScript.GetComponent<Animator>().SetFloat("Speed_Multiplier", 1.0f);
         playerScript.gameOver = false;
     }
+    
 }

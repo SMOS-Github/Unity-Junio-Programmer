@@ -952,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013d6b2f580a03846a006f5af7817881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eatSound: {fileID: 8300000, guid: 2a89f8600534d57408743f8a8ff32385, type: 3}
 --- !u!114 &-7266150891180950149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81248495fc8647045a374bdd86361184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 96a7c09e4e3cc0d46bdb7bd720f72373, type: 3}
 --- !u!1001 &7921459859019803702
 PrefabInstance:
   m_ObjectHideFlags: 0

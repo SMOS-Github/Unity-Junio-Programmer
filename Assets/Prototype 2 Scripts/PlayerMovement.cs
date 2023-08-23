@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   
+    private AudioSource audioSource;
     public ParticleSystem effects;
+    public AudioClip throwSound;
+
     public Transform here;
     public GameObject[] foods;
-    private float moveSpeed=15f;
-    private float xRange=18f;
-    private float zRange=26.5f;
-    private float zMinRange=13f;
+
+    private GameManager gameManager;
+    private float moveSpeed = 15f;
+    private float xRange = 18f;
+    private float zRange = 26.5f;
+    private float zMinRange = 13f;
+
+
+    private void Start()
+    {
+        audioSource = GameObject.Find("BGMusic").GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     void FixedUpdate()
     {
+
+        if (gameManager.gameOver == false)
+        {
+            Movement();
+            Shooting();
+        }
         AreaBounding();
-        Movement();
-        Shooting();
     }
     void AreaBounding()
     {
@@ -50,9 +65,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            audioSource.PlayOneShot(throwSound, 1f);
             int index = Random.Range(0, foods.Length);
             effects.Play();
-            Instantiate(foods[index],here.position, foods[index].transform.rotation);
+            Instantiate(foods[index], here.position, foods[index].transform.rotation);
         }
         else
         {
